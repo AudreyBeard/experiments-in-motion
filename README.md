@@ -1,3 +1,43 @@
+[[_TOC_]]
+
+# Experiments with Motion
+
+## Notes
+### Compilation
+Most of my experience so far has relied on XCode, since the documentation is only really (and barely) up-to-date for **XCode Version 13.4.1 (13F100)**. In general, the notes I'm taking are relevant to that use case. If I am referring to command-line builds, I will specify that in the text.
+
+#### Project Settings
+This project is set to use the "Legacy Build System," which is deprecated. In order to build from the this openFrameworks version (`of_v0.11.2_osx_release`), you need to (for each project):
+```
+File > Project Settings...
+Shared Project Settings:
+Build System:
+Select "New Build System (Default)"
+```
+
+You can also simply change a file from the command line:
+`PROJECT_NAME/PROJECT_NAME.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings`
+
+Change the following:
+```
+<dict> // same in both, included here for context
+	<key>BuildSystemType</key>
+	<string>Original</string>
+</dict>
+```
+To the following:
+```
+<dict> // same in both, included here for context
+	<key>PreviewsEnabled</key>
+	<false/>
+</dict>
+```
+Note that the `<dict>` tag is identical in both cases. It's included here for context
+
+# END of new  notes
+--
+
+
 # About modelNoiseExample
 --
 ![Screenshot of Example](modelNoiseExample.gif)
